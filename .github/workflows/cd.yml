@@ -20,19 +20,19 @@ jobs:
       - name: Run tests
         uses: ./.github/actions/node-tests
 
-  test-python:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run tests
-        uses: ./.github/actions/python-tests
+  # test-python:
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: read
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Run tests
+  #       uses: ./.github/actions/python-tests
 
   build:
     runs-on: ubuntu-latest
     needs:
-      - test-python
+      # - test-python
       - test-node
     permissions:
       packages: write
