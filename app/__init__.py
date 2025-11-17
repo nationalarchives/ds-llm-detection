@@ -2,14 +2,15 @@ import logging
 
 from app.lib.cache import cache
 from app.lib.context_processor import cookie_preference, now_iso_8601
+from app.lib.limiter import limiter
 from app.lib.talisman import talisman
 from app.lib.template_filters import slugify
-from flask import Flask
+from flask import Flask, render_template
 from jinja2 import ChoiceLoader, PackageLoader
 
 
 def create_app(config_class):
-    app = Flask(__name__, static_url_path="/static")
+    app = Flask(__name__, static_url_path="/static/detect-llm")
     app.config.from_object(config_class)
 
     gunicorn_error_logger = logging.getLogger("gunicorn.error")
@@ -54,6 +55,12 @@ def create_app(config_class):
         },
         force_https=app.config["FORCE_HTTPS"],
     )
+
+    limiter.init_app(app)
+
+    @app.errorhandler(429)
+    def ratelimit_handler(e):
+        return render_template("errors/rate.html"), 429
 
     @app.after_request
     def apply_extra_headers(response):

@@ -4,7 +4,7 @@
 {%- from 'components/footer/macro.html' import tnaFooter -%}
 {%- from 'components/header/macro.html' import tnaHeader -%}
 
-{%- set theme = request.cookies.get('theme') or 'system' -%}
+{%- set theme = request.cookies.get('theme') or 'light' -%}
 {%- set themeAccent = themeAccent if themeAccent else 'yellow' -%}
 {%- set htmlAttributes = {
   'data-ga4id': app_config.GA4_ID or '',
@@ -49,13 +49,6 @@
 {% endblock %}
 
 {% block cookies %}
-{% if 'cookie_preferences_set' not in request.cookies or not request.cookies.get('cookie_preferences_set') %}
-{{ tnaCookieBanner({
-  'serviceName': 'The National Archives',
-  'cookiesUrl': url_for('main.cookies'),
-  'cookiesDomain': app_config.COOKIE_DOMAIN
-}) | indent(6) }}
-{% endif %}
 {% endblock %}
 
 {% block header %}

@@ -17,7 +17,7 @@ services:
       - CSP_STYLE_SRC='self',fonts.googleapis.com,p.typekit.net,use.typekit.net
       - CSP_FONT_SRC='self',fonts.gstatic.com,use.typekit.net
     ports:
-      - 81:8080
+      - 1337:8080
     volumes:
       - ./:/app
 
@@ -28,9 +28,9 @@ services:
     volumes:
       - ./:/app
 
-  docs:
-    image: squidfunk/mkdocs-material
-    volumes:
-      - .:/docs
-    ports:
-      - 1081:8000
+  # docs:
+  #   image: squidfunk/mkdocs-material
+  #   volumes:
+  #     - .:/docs
+  #   ports:
+  #     - 1081:8000

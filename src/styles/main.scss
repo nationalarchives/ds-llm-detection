@@ -1,1 +1,50 @@
+@use "@nationalarchives/frontend/nationalarchives/tools/borders";
+@use "@nationalarchives/frontend/nationalarchives/tools/colour";
+@use "@nationalarchives/frontend/nationalarchives/tools/spacing";
+@use "@nationalarchives/frontend/nationalarchives/tools/typography";
+
 @use "@nationalarchives/frontend/nationalarchives/all";
+
+.llm-score {
+  aspect-ratio: 1;
+  padding: spacing.space(2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: spacing.space(1);
+
+  text-align: center;
+
+  border-radius: 100%;
+
+  @include colour.thick-keyline-accent;
+
+  &--high {
+    @include colour.pink-accent;
+  }
+
+  &--medium {
+    @include colour.orange-accent;
+  }
+
+  &--low {
+    @include colour.blue-accent;
+  }
+
+  &--very-low {
+    @include colour.green-accent;
+  }
+
+  &__heading {
+  }
+
+  &__percetage {
+    //   @include typography.font-size(72);
+    font-size: clamp(42px, 8vw, 72px);
+    @include typography.main-font-weight-bold;
+    line-height: 1;
+    line-height: 1cap;
+  }
+}
