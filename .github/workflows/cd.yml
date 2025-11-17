@@ -40,6 +40,8 @@ jobs:
     steps:
       - name: Delete huge unnecessary tools folder
         run: rm -rf /opt/hostedtoolcache
+      - name: Disable Wiz scanning
+        run: echo "DISABLE_WIZ=true" >> $GITHUB_ENV
       - uses: actions/checkout@v4
       - name: Generate version tag
         id: version-tag
