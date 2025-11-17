@@ -38,11 +38,11 @@
   }
 
   &__heading {
+    line-height: 1.2;
   }
 
   &__percetage {
-    //   @include typography.font-size(72);
-    font-size: clamp(42px, 8vw, 72px);
+    font-size: clamp(48px, 8vw, 64px);
     @include typography.main-font-weight-bold;
     line-height: 1;
     line-height: 1cap;
