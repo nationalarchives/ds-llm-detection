@@ -38,6 +38,8 @@ jobs:
       packages: write
       contents: write
     steps:
+      - name: Delete huge unnecessary tools folder
+        run: rm -rf /opt/hostedtoolcache
       - uses: actions/checkout@v4
       - name: Generate version tag
         id: version-tag
