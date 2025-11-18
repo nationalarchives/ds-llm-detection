@@ -6,7 +6,9 @@
 @use "@nationalarchives/frontend/nationalarchives/all";
 
 .llm-score {
+  max-width: 12rem;
   aspect-ratio: 1;
+  margin: 0 auto;
   padding: spacing.space(2);
 
   display: flex;
