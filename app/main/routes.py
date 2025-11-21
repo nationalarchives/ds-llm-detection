@@ -19,4 +19,4 @@ def detect_llm():
         return render_template(
             "main/llm.html", input_text=input_text, score=probability_percentage
         )
-    return render_template("main/llm.html")
+    return render_template("main/llm.html", score=None)
