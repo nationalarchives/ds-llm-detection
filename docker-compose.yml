@@ -3,8 +3,8 @@ services:
     build:
       context: .
       args:
-        IMAGE: ghcr.io/nationalarchives/tna-python-root
-        IMAGE_TAG: 0
+        IMAGE: ghcr.io/nationalarchives/tna-python-dev
+        IMAGE_TAG: latest
     environment:
       - ENVIRONMENT_NAME=localhost
       - RUNTIME=develop
@@ -18,13 +18,6 @@ services:
       - CSP_FONT_SRC='self',fonts.gstatic.com,use.typekit.net
     ports:
       - 1337:8080
-    volumes:
-      - ./:/app
-
-  dev:
-    environment:
-      - CONFIG=config.Test
-    image: ghcr.io/nationalarchives/tna-python-dev:preview
     volumes:
       - ./:/app
 
